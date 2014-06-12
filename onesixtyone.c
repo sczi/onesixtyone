@@ -33,7 +33,7 @@
 #endif
 
 #define MAX_COMMUNITIES 1024
-#define MAX_HOSTS 65535
+#define MAX_HOSTS 65536
 #define MAX_COMMUNITY_SIZE 32
 
 char* snmp_errors[] = {
@@ -156,6 +156,10 @@ void read_hosts(char* filename)
 					printf("Malformed IP address: %s\n", buf);
 					exit(1);
 				}
+                if (host_count == MAX_HOSTS) {
+                    printf("more than max hosts allowed\n");
+                    exit(1);
+                }
 				c = 0;
 			}
 		} else {
