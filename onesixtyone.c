@@ -107,7 +107,7 @@ void read_communities(char* filename)
 	i = 0; c = 0;
 	community[i] = (char*)malloc(MAX_COMMUNITY_SIZE);
 	while ((ch = fgetc(fd)) != EOF) {
-		if (ch == '\n' || ch == ' ' || ch == '\t') {
+		if (ch == '\n' || ch == '\t') {
 			community[i][c] = '\0';
 			if (c > 0) {
 				i++; c = 0;
