@@ -34,7 +34,7 @@
 
 #define MAX_COMMUNITIES 1024
 #define MAX_HOSTS 65535
-#define MAX_COMMUNITY_SIZE 16
+#define MAX_COMMUNITY_SIZE 32
 
 char* snmp_errors[] = {
 	"NO ERROR",				/* 0 */
@@ -111,7 +111,7 @@ void read_communities(char* filename)
 			community[i][c] = '\0';
 			if (c > 0) {
 				i++; c = 0;
-				community[i] = (char*)malloc(16);
+				community[i] = (char*)malloc(MAX_COMMUNITY_SIZE);
 			}
 		} else {
 			community[i][c++] = ch;
